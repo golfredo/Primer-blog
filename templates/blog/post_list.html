@@ -17,23 +17,18 @@
       	</div>
   	
   		<h1><strong>Ultimos Post</strong></h1>
+  	
+  		{%for post in posts%}
   		<div>
-  			<h1><a href="">Titulo del primer post</a></h1>
-  			<h2>Publicado el ...</h2>
-  			<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam vene</p>
+  		
+  		<h3><a href="">{{post.titulo}}</a></h3>
+  		<p>
+  			{{post.texto|linebreaksbr}}
+  		</p>
+  		<p>publicado el:{{post.fecha_publicado}}</p>
+  		
   		</div>
-
-  		<div>
-  			<h1><a href="">Titulo del segundo post</a></h1>
-  			<h2>Publicado el ...</h2>
-  			<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam vene</p>
-  		</div>
-
-  		<div>
-  			<h1><a href="">Titulo del tercer post</a></h1>
-  			<h2>Publicado el ...</h2>
-  			<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam vene</p>
-  		</div>
+  		{%endfor%}
 
      </body>
   </html>
