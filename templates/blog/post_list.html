@@ -1,34 +1,13 @@
-  <html>
-  	<head>
-  		<title>Ola Blog</title>
-  	</head>
-  	<body>
-  		<div>
-  			<h1>Bienvenidos</h1>
-  		     <em>Este es mi Blog</em>
-  		</div>
-  		
-  		
-  		<br>
-  		<div>
-  			
-  			<h2><a href="http://127.0.0.1:8000/admin/">Link a Admin</a></h2>
-        
-      	</div>
-  	
-  		<h1><strong>Ultimos Post</strong></h1>
-  	
-  		{%for post in posts%}
-  		<div>
-  		
-  		<h3><a href="">{{post.titulo}}</a></h3>
-  		<p>
-  			{{post.texto|linebreaksbr}}
-  		</p>
-  		<p>publicado el:{{post.fecha_publicado}}</p>
-  		
-  		</div>
-  		{%endfor%}
-
-     </body>
-  </html>
+ {% extends 'blog/base.html' %}
+ 
+ {% block content %}
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.fecha_publicado }}
+                        </div>
+                        <h1><a href="{%url 'app.views.post_detail' pk=post.pk%}">{{ post.titulo }}</a></h1>
+                        <p>{{ post.texto|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+{% endblock content %}
